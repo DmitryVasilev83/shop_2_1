@@ -1,0 +1,20 @@
+При выполнении аспекта TimeAspects аспект отрабатывает, выводит время работы метода, но потом кидает ошибку
+2022-05-27 12:48:24.719 ERROR 11800 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]
+ : Servlet.service() for servlet [dispatcherServlet] in context with path [/wintermarket] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.geekbrains.geekmarketwinter.controllers.ShopController.shopPage(ShopController.java:91) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+
+ и страница магазина не отображается.
+ There was an unexpected error (type=Internal Server Error, status=500).
+ No message available
+ java.lang.NullPointerException
+ 	at com.geekbrains.geekmarketwinter.controllers.ShopController.shopPage(ShopController.java:91)
+
+Другие аспекты отрабатывают нормально, логи пишутся, страницы магазина отображаются.
+Продукт создается , заказ в базу данных прописывается. Почему именно в аспекте с @Around выдается ошибка, понять не удалось.
+Если делать аспект с @Around в том виде в котором вы давали на занятии, то он вообще не отрабатывает. В моем варианте хотябы время считает.
